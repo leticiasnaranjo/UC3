@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Press+Start+2P&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    /* ^ Controle total do tamanho das <tags> */
+    box-sizing: border-box;
+}
+body{
+    font-family: "Press Start 2P", system-ui;
+/* centralizar o div 'game' tanto vertical quanto horizontal */
+display: flex;
+    justify-content: center;
+    align-items:center;
+
+    background-image: url("https://i.redd.it/kx313p3cqaaf1.jpeg");    
+}
+.game{
+/* Placar e cartas um em baixo do outro */
+    display: flex;
+    flex-direction: column;
+    border-radius: 50px;
+    border:2px solid rgba(255, 255, 255, 0.493);
+    padding: 60px;
+    background: rgba(255, 255, 255, 0.459);
+    text-align: center;
+    width: 80%;
+    gap: 15px;
+    font-size: 10px ;
+}
+.game>h1{
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+#pontosjogador{
+    color:rgba(87, 199, 167, 1);
+    text-transform:uppercase;
+
+}
+#pontosmaquina{
+    color:rgba(119, 86, 229, 0.98);
+    text-transform:uppercase;
+}
+#escolha{
+    font-size: 30px;
+}
+.cartas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+/* Diminuir o tamanho das imgs */
+.card img{
+    width: 150px;
+}
+.card{
+    /* FORMATO 
+    CENTRALIZAR (X E Y) DA IMAGEM E O NOME DA CARTA */
+    padding: 50px;
+    border: 1px solid black;
+    border-radius: 30px;
+    width: 45%;
+    height: 350px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    /* DISTANCIA ENTRE IMG E H2 */
+    justify-content: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.card :hover{
+    border: 2px solid transparent;
+}
+.card h2{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 22px;
+}

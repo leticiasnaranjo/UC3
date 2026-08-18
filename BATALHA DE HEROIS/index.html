@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha de Herois</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game">
+        <h1>Bem vindo a Batalha de Herois</h1>
+        <div class="placar">
+            <h1 id="pontosPlayer">Player Pontos : 0</h1>
+            <h1 id="pontosMaquina">Maquina Pontos : 0</h1>
+        </div>
+        <h1 id="escolha">Escolha sua jogada : </h1>
+        <div class="cartas">
+            <div class="card" onclick="jogar('Guerreiro')">
+                <img src="img/guerreiro.jpg" alt="">
+                <h2>Guerreiro</h2>
+            </div>
+            <div class="card" onclick="jogar('Mago')">
+                <img src="img\mago.jpg" alt="">
+                <h2>Mago</h2>
+            </div>
+            <div class="card" onclick="jogar('Arqueiro')">
+                <img src="img\arqueiro.jpg" alt="">
+                <h2>Arqueiro</h2>
+            </div>   
+            <div class="card" onclick="jogar('Paladino')">
+                <img src="img\paladino.png" alt="">
+                <h2>Paladino</h2>  
+            </div>    
+            <div class="card" onclick="jogar('Ladino')">
+                <img src="img\ladino.png" alt="">
+                <h2>Ladino</h2>
+            </div>   
+        </div>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
