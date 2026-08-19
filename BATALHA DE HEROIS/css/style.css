@@ -1,80 +1,128 @@
-@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Press+Start+2P&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Nabla&display=swap');
+
+* {
     padding: 0;
     margin: 0;
-    /* ^ Controle total do tamanho das <tags> */
     box-sizing: border-box;
 }
-body{
-    font-family: "Press Start 2P", system-ui;
-/* centralizar o div 'game' tanto vertical quanto horizontal */
-display: flex;
-    justify-content: center;
-    align-items:center;
 
-    background-image: url("https://i.redd.it/kx313p3cqaaf1.jpeg");    
+body {
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+    
+    /* Garante que o body ocupe 100% da altura da tela para centralizar */
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-image: url("../img/mapa.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
-.game{
-/* Placar e cartas um em baixo do outro */
+
+.game {
     display: flex;
     flex-direction: column;
-    border-radius: 50px;
-    border:2px solid rgba(255, 255, 255, 0.493);
-    padding: 60px;
-    background: rgba(255, 255, 255, 0.459);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 215, 0, 0.4); /* Borda com toque dourado */
+    padding: 40px;
+    
+    /* Efeito de Vidro Fosco (Glassmorphism) */
+    background: rgba(20, 15, 10, 0.65); 
+    backdrop-filter: blur(8px); 
+    color: #f0e6d2; /* Texto claro estilo pergaminho para leitura no fundo escuro */
+    
     text-align: center;
     width: 80%;
+    max-width: 2000px;
     gap: 15px;
-    font-size: 10px ;
+    
+    /* Sombra elegante no container principal */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
-.game>h1{
-    font-size: 40px;
-    letter-spacing: 2px;
-}
-#pontosjogador{
-    color:rgba(87, 199, 167, 1);
-    text-transform:uppercase;
 
+.game > h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+    color: #ffd700; /* Dourado */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
-#pontosmaquina{
-    color:rgba(119, 86, 229, 0.98);
-    text-transform:uppercase;
+
+#pontosPlayer, #pontosMaquina {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 40px;
 }
-#escolha{
-    font-size: 30px;
+
+#escolha {
+    font-size: 24px;
+    color: #d4af37;
 }
-.cartas{
+
+.cartas {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 30px; /* Espaçamento uniforme entre as cartas */
     text-align: center;
+    margin-top: 40px;
 }
-/* Diminuir o tamanho das imgs */
-.card img{
-    width: 150px;
-}
-.card{
-    /* FORMATO 
-    CENTRALIZAR (X E Y) DA IMAGEM E O NOME DA CARTA */
-    padding: 50px;
-    border: 1px solid black;
-    border-radius: 30px;
+
+.card {
+    padding: 30px;
+    border: 2px solid #8b5a2b; /* Borda estilo madeira/couro */
+    border-radius: 20px;
     width: 45%;
-    height: 350px;
+    height: 320px;
+    background: rgba(255, 255, 255, 0.1);
+    
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
-    /* DISTANCIA ENTRE IMG E H2 */
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    
     cursor: pointer;
-    transition: all 0.4s;
+    
+    /* Suaviza todas as transformações e transições */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease,
+                background 0.3s ease;
 }
-.card :hover{
-    border: 2px solid transparent;
+
+/* Efeito ao PASSAR O MOUSE na carta */
+.card:hover {
+    transform: translateY(-12px) scale(1.03); /* Sobe e cresce levemente */
+    border-color: #ffd700; /* Borda fica dourada */
+    background: rgba(255, 255, 255, 0.2);
+    /* Brilho dourado ao redor da carta */
+    box-shadow: 0 12px 25px rgba(255, 215, 0, 0.3); 
 }
-.card h2{
+
+/* Animação na IMAGEM dentro da carta ao passar o mouse */
+.card:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+}
+
+/* Efeito ao CLICAR na carta */
+.card:active {
+    transform: translateY(-2px) scale(0.98); /* Efeito de ser pressionada */
+    box-shadow: 0 5px 10px rgba(255, 215, 0, 0.2);
+}
+
+.card img {
+    width: 130px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card h2 {
     text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 22px;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: #ffffff;
 }
