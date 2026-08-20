@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+}
+.container{
+    background-color: white;
+    padding: 50px;
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    text-align: center;
+    border: 2px solid rgb(4, 5, 5);
+    box-shadow: 5px 10px 1px rgb(31, 180, 180) ;
+    border-radius: 10px;
+}
+.container h1{
+    font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.4s;
+}
+h1.trocado{
+    font-size: 52px;
+    color: rgb(35, 216, 186);
+    text-shadow: 2px 2px 2px black;
+}
+#contador{
+    font-size: 44px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(40, 162, 192);
+    letter-spacing: 3px;
+
+}
+.btn{
+    padding: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+.contar{
+    background-color:rgb(31, 180, 180);
+    color:black;
+    border:black;
+}
+.trocar{
+    background-color:rgb(35, 216, 186);
+    color: black;
+    border: black;
+}
