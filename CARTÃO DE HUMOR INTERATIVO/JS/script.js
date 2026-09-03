@@ -15,6 +15,13 @@ function enviarNome() {
 }
 
 
+// ADD EVENT LISTENER NO BOTÃO ENVIAR
+
+let botaoEnviar = document.getElementById("enviar");
+
+botaoEnviar.addEventListener("click", enviarNome);
+
+
 function mostrarHumor(humor) {
 
     let nome = document.getElementById("nome").value;
@@ -52,5 +59,6 @@ function mostrarHumor(humor) {
 
         mensagem.innerHTML = nome + ", você está animado! 🤩 Aproveite essa energia!";
         mensagem.style.color = "purple";
+
     }
 }
