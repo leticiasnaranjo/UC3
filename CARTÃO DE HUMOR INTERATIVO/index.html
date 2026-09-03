@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cartão de Humor Interativo</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <h1>Bem vindo ao MeuHumor.com</h1>
+
+    <input type="text" id="nome" placeholder="Digite seu nome">
+
+    <button id="enviar" onclick="enviarNome()">Enviar</button>
+
+    <p id="boasVindas"></p>
+
+    <div id="cartao">
+
+        <h1>Como está hoje?</h1>
+
+        <button id="feliz" onclick="mostrarHumor('feliz')">
+            😊 Feliz
+        </button>
+
+        <button id="cansado" onclick="mostrarHumor('cansado')">
+            😴 Cansado
+        </button>
+
+        <button id="triste" onclick="mostrarHumor('triste')">
+            😢 Triste
+        </button>
+
+        <button id="animado" onclick="mostrarHumor('animado')">
+            🤩 Animado
+        </button>
+
+        <p id="mensagem"></p>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
