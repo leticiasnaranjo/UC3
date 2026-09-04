@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+input{
+    padding: 15px;
+    font-size: 22px;
+}
+form{
+    padding: 30px;
+}
+select{
+    width: 300px;
+    padding: 15px;
+
+    font-size: 18px;
+    color: darkgrey;
+    background-color: ghostwhite;
+
+    border: 2px solid gray;
+    border-radius: 8px;
+
+    /* Mudar o mouse ao passar sobre a TAG */
+    cursor: pointer;
+}
+/* efeito Hover - O que acontece ao passar o mouse sobre a TAG */
+select:hover{
+    border-color: rgb(65, 66, 116);
+    background-color: rgb(138, 138, 141);
+}
+    /* Quando a TAG esta selecionada CLICANDO */
+select:focus{
+    /*^ Quando a TAG esta selecionada CLICANDO */
+    border-color: black;
+    
+    /* TRACEJADO - OUTLINE */
+
+    outline: none;
+}
