@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cineflix</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>CINEFLIX</h1>
+
+        <h2>Escolha seu filme</h2>
+
+        <select id="filme">
+            <option value="">Selecione um filme</option>
+            <option value="D039">O Poderoso Chefão - Máfia</option>
+            <option value="B678">Matrix - Ação</option>
+            <option value="D889">O Senhor dos Anéis - Fantasia</option>
+            <option value="M912">Interestelar - Ficção Científica</option>
+            <option value="G007">O Resgate do Soldado Ryan - Guerra</option>
+        </select>
+
+        <br><br>
+
+        <label>Quantidade de ingressos:</label>
+
+        <input type="number" id="qtdIngresso" min="1" value="1">
+
+        <br><br>
+
+        <h2>Combo</h2>
+
+        <select id="combo">
+            <option value="nenhum">Nenhum combo</option>
+            <option value="15.90">Doritos + Refri Lata - R$ 15,90</option>
+            <option value="17.90">Pipoca Salgada + Coca-Cola - R$ 17,90</option>
+            <option value="14.90">Pipoca Doce + Suco - R$ 14,90</option>
+            <option value="25.90">Refil de Pipoca + 2 Recargas - R$ 25,90</option>
+        </select>
+
+        <br><br>
+
+        <label>Quantidade de combos:</label>
+
+        <input type="number" id="qtdCombo" min="0" value="0">
+
+        <br><br>
+
+        <button onclick="calcular()">Continuar</button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script src="JS/script.js"></script>
+
+</body>
+</html>
