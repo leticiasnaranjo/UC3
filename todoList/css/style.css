@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: "Archivo Black", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+}
+ 
+.container{
+    display: flex;
+    align-items:flex-start ;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg,rgba(235, 250, 242, 1) 0%, rgba(148, 165, 224, 1) 45%, rgba(169, 165, 232, 1) 67%, rgba(183, 154, 219, 1) 88%);
+    padding: 10px;
+}
+ 
+.task-app{
+    /* a diferença entra  width w max-width  */
+    /* width é a largura que ele TENTARÁ alcamçar (100% a largura do pai dele o container) mas quando usa-se o 'max-width' junto o 'max'
+    será o limite dele  */
+    /* ! Se s tela do dispoditivo for menor que 540px de largura , então ele obedecerá a regra de 100% width. SENÃO ele limitará a 540pzx */
+    width: 100%;
+    max-width: 540px;
+    background-color: #edebf6a4;
+    /* ? 100px topo / auto = direita / 20px baixo/ auto = esquerda */
+    margin: 100px auto 20px;
+    /* ? 100px topo / auto = direita / 20px baixo/ auto = esquerda */
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+ 
+.task-app h2{
+    color: rgb(95, 126, 141);
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+ 
+}
+ 
+.task-app h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+ 
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(253, 253, 253, 0.308);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+ 
+input{
+    /*  Flex 1 = já que o input flex 1 representa tamanho comum pra ele  */
+ 
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+ 
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background-color:rgba(95, 164, 170, 0.911);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px ;
+}
+ul li{
+    list-style: none;
+    font-size: 18px;
+    padding: 12px 8px 12px 50px;
+    /* ? Não permite o usuário selecionar o texto da tarefa */
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    /* ? Posicionamento relativo = Quase igual ao comum (sem definir position).
+    ? /* Porém aqui ele permite posicionar á vontade  */
+    /* ? e tem um EFEITO ESPECIAL quando algum item dentro dele é position absolute*/
+ 
+}
+ 
+/* ? Dois 'dois pontos' :: - Pseudo Elemento */
+/* ? É quase camo uma 'tag fake' colocando ANTES do <li> (a esquerda) */
+ 
+ul li::before{
+    content: '';
+    /* ? Content = conteúdo: */
+    /* ? Oque estará escrito dentro de uma tag fake <fake>~aqui~
+    </fake> */
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url("../img/desmarcado.png");
+    background-size: cover;
+    background-position: center;
+ 
+    /* ? posicionando o elemento com o top e left */
+    top: 12px;
+    left: 8px;
+    transition: all 0.4s;
+}
+/* ? para as <li> com classe 'checked' */
+ul li.checked{
+    color: rgb(54, 63, 46);
+    text-decoration: line-through ;
+}
+ 
+/* ? Antes da <li> marcadas */
+    ul li.checked::before{
+        background-image: url("../img/marcado.png");
+    }
+
+li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    height: 40px;
+    width: 40px;
+    font-size: 22px;
+    color: aquamarine;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+li span:hover{
+    background-color: black;
+}
+ 
+   
+ 
