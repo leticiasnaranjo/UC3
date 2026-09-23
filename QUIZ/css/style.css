@@ -1,0 +1,100 @@
+/* Variaveis / Propriedades */
+
+/* ^ Servem para padronização do layout do site;
+^ Quando cores ou tamanhos se repetem muito */
+
+:root{
+    --cor-principal: #6c5ce7;
+    --cor-fundo: #181818;
+    --cor-card: #252538;
+    --cor-acerto: #2ecc71;
+    --cor-texto: #ffffff;
+    --cor-erro: #e74c3c;
+    --fonte-tamanho: 16px;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Usando variaveis */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+.quiz{
+    width: 600px;
+    padding: 30px;
+
+    background-color: var(--cor-card);
+    border-radius: 15px;
+}
+h1{
+    text-align: center;
+    color: var(--cor-principal);
+}
+#numero-pergunta{
+    color: white;
+}
+#alternativas{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
+.alternativa, #proxima {
+    padding: 12px;
+    border:none;
+    border-radius: 8px;
+
+    font-size: var(--fonte-tamanho);
+    cursor: pointer;
+}
+.alternativa{
+    background-color: white;
+    color: #222;
+    text-align: left;
+}
+.alternativa:hover{
+    background-color: var(--cor-principal);
+    color: white;
+}
+#resultado{
+    font-weight: bold;
+    min-height: 20px;
+}
+#proxima{
+    background-color: var(--cor-principal);
+    color: white;
+    /* sumir com o botão inicialmente*/
+    display: none;
+}
+/* ------------------------------ */
+/* RESPONSIVIDADE */
+/* ------------------------------ */
+
+@media (max-width : 650px) {
+    body{
+        padding: 15px;
+    }
+    .quiz{
+        width: 100%;
+        padding: 20px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 19px;
+    }
+
+}
