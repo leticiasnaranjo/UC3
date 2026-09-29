@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Cinema</title>
+
+    <!-- Fontes do Google (se ficar sem internet, o navegador usa as fontes reserva) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- O quiz inteiro é um "ingresso de cinema" -->
+    <main class="ingresso">
+
+        <header class="topo">
+            <h1>Quiz de Cinema 🎬</h1>
+            <p id="numero-pergunta">Pergunta 1</p>
+
+            <!-- Barra de progresso em forma de rolo de filme -->
+            <div class="filme"><div id="progresso"></div></div>
+        </header>
+
+        <!-- Linha pontilhada do ingresso -->
+        <div class="picote"></div>
+
+        <section class="corpo">
+            <div id="tela-quiz">
+                <!-- Moldura com a imagem da pergunta (o JS troca o src) -->
+                <div id="moldura" class="moldura">
+                    <img id="imagem-pergunta" alt="Cena de um filme para adivinhar">
+                </div>
+
+                <h2 id="pergunta">A pergunta aparecerá aqui</h2>
+
+                <div id="alternativas">
+                    <!-- Os botões das alternativas serão criados aqui pelo JS -->
+                </div>
+
+                <p id="resultado"></p>
+
+                <button id="proxima" onclick="proximaPergunta()">Próxima pergunta</button>
+            </div>
+
+            <!-- Tela final: começa escondida -->
+            <div id="tela-final">
+                <p class="final-titulo">Fim da sessão</p>
+                <p id="nota">0/0</p>
+                <p id="mensagem-final"></p>
+
+                <!-- Só aparece se o jogador acertar tudo (o JS controla) -->
+                <img id="imagem-final" src="img/absolute-cinema.jpg" alt="Absolute Cinema">
+
+                <button id="reiniciar" onclick="reiniciar()">Jogar de novo</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

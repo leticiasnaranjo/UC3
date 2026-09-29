@@ -1,0 +1,312 @@
+/* Variáveis / Propriedades */
+/* ^ Trocou a cor? Muda só aqui e o site inteiro acompanha */
+
+:root{
+    --cor-fundo: #1b0b10;      /* vinho bem escuro: cortina de cinema */
+    --cor-card: #f3e7d2;       /* papel do ingresso */
+    --cor-texto: #2a1a1a;
+    --cor-principal: #b3122d;  /* vermelho veludo */
+    --cor-destaque: #e0a93b;   /* dourado */
+    --cor-acerto: #2f8f5b;
+    --cor-erro: #b3122d;
+    --fonte-titulo: "Bebas Neue", Impact, sans-serif;
+    --fonte-texto: "DM Sans", Arial, Helvetica, sans-serif;
+    --fonte-tamanho: 16px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    /* Luz de projetor no centro da tela */
+    background: radial-gradient(circle at 50% 30%, #4a1523 0%, var(--cor-fundo) 65%);
+    color: var(--cor-texto);
+    font-family: var(--fonte-texto);
+}
+
+/* ---------- INGRESSO ---------- */
+
+.ingresso{
+    position: relative;
+    width: 600px;
+    background-color: var(--cor-card);
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Os dois "furos" laterais do ingresso (círculos da cor do fundo) */
+.ingresso::before,
+.ingresso::after{
+    content: "";
+    position: absolute;
+    top: 150px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--cor-fundo);
+}
+.ingresso::before{ left: -15px; }
+.ingresso::after{ right: -15px; }
+
+.topo{
+    padding: 28px 32px 22px;
+}
+
+h1{
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    font-size: 46px;
+    letter-spacing: 2px;
+    line-height: 1;
+    color: var(--cor-principal);
+}
+
+#numero-pergunta{
+    margin-top: 6px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #7a5a3a;
+}
+
+/* Rolo de filme = barra de progresso */
+.filme{
+    margin-top: 14px;
+    height: 14px;
+    background-color: #2a1a1a;
+    border-radius: 3px;
+    overflow: hidden;
+}
+#progresso{
+    height: 100%;
+    width: 0%;
+    background-color: var(--cor-destaque);
+    transition: width 0.4s ease;
+}
+
+.picote{
+    border-top: 3px dashed #c9b48f;
+    margin: 0 22px;
+}
+
+.corpo{
+    padding: 28px 32px 32px;
+}
+
+/* ---------- IMAGEM DA PERGUNTA ---------- */
+/* Moldura escura com furinhos nas laterais, como um fotograma de filme */
+
+.moldura{
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 20px;
+    padding: 0 22px;
+
+    background-color: #2a1a1a;
+    border-radius: 6px;
+
+    /* os furinhos do filme (esquerda e direita) */
+    background-image:
+        repeating-linear-gradient(to bottom, var(--cor-card) 0 8px, transparent 8px 20px),
+        repeating-linear-gradient(to bottom, var(--cor-card) 0 8px, transparent 8px 20px);
+    background-size: 8px 100%, 8px 100%;
+    background-position: 7px 6px, calc(100% - 7px) 6px;
+    background-repeat: no-repeat;
+}
+.moldura img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;   /* a imagem preenche sem esticar */
+}
+
+/* Aviso quando a imagem não existe na pasta img/ */
+.moldura.sem-imagem img{
+    display: none;
+}
+.moldura.sem-imagem::after{
+    content: "Coloque a imagem em: " attr(data-arquivo);
+    position: absolute;
+    inset: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    color: var(--cor-destaque);
+    font-size: 14px;
+}
+
+h2{
+    font-family: var(--fonte-texto);
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 22px;
+}
+
+/* ---------- ALTERNATIVAS ---------- */
+
+#alternativas{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alternativa, #proxima, #reiniciar{
+    padding: 14px 16px;
+    border: none;
+    border-radius: 8px;
+
+    font-family: var(--fonte-texto);
+    font-size: var(--fonte-tamanho);
+    cursor: pointer;
+}
+
+.alternativa{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background-color: #fffaf0;
+    color: var(--cor-texto);
+    text-align: left;
+    border: 2px solid #d9c6a3;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+/* Letrinha A, B, C, D antes de cada alternativa */
+.alternativa .letra{
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-destaque);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.alternativa:hover:enabled{
+    border-color: var(--cor-principal);
+    transform: translateX(4px);
+}
+
+/* Depois de responder */
+.alternativa:disabled{
+    cursor: default;
+}
+.alternativa.certa{
+    background-color: var(--cor-acerto);
+    border-color: var(--cor-acerto);
+    color: white;
+}
+.alternativa.errada{
+    background-color: var(--cor-erro);
+    border-color: var(--cor-erro);
+    color: white;
+}
+
+#resultado{
+    margin-top: 18px;
+    min-height: 22px;
+    font-weight: 700;
+}
+
+/* ---------- BOTÕES DE AÇÃO ---------- */
+
+#proxima, #reiniciar{
+    margin-top: 12px;
+    width: 100%;
+    background-color: var(--cor-principal);
+    color: white;
+    font-weight: 700;
+}
+#proxima:hover, #reiniciar:hover{
+    background-color: #8f0e24;
+}
+/* sumir com o botão inicialmente */
+#proxima{
+    display: none;
+}
+
+/* Foco visível para quem usa teclado */
+button:focus-visible{
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+/* ---------- TELA FINAL ---------- */
+
+#tela-final{
+    display: none;
+    text-align: center;
+    padding: 10px 0;
+}
+.final-titulo{
+    font-family: var(--fonte-titulo);
+    font-size: 30px;
+    letter-spacing: 2px;
+    color: #7a5a3a;
+}
+#nota{
+    font-family: var(--fonte-titulo);
+    font-size: 110px;
+    line-height: 1;
+    color: var(--cor-principal);
+}
+#mensagem-final{
+    margin: 8px 0 18px;
+    font-size: 18px;
+}
+
+/* Imagem do 10/10: começa escondida */
+#imagem-final{
+    display: none;
+    max-width: 100%;
+    max-height: 450px;
+    margin: 0 auto 10px;
+    border-radius: 8px;
+    border: 4px solid var(--cor-destaque);
+}
+
+/* ------------------------------ */
+/* RESPONSIVIDADE */
+/* ------------------------------ */
+
+@media (max-width : 650px) {
+    .ingresso{
+        width: 100%;
+    }
+    .topo, .corpo{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    h1{
+        font-size: 36px;
+    }
+    h2{
+        font-size: 19px;
+    }
+    .ingresso::before,
+    .ingresso::after{
+        top: 138px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        transition: none !important;
+    }
+}
